@@ -9,5 +9,9 @@
 <body>
 	<a href="main.do?action=logoff">Sair</a><br>
 	<a href="main.do?action=newUserForm">Cadastrar novo usuário</a>
+	<a href="main.do?action=addRequestForm">Incluir pedido</a>
+	<a href="main.do?action=deleteRequest">Deletar pedido</a>
+	<a href="main.do?action=changeRequest">Alterar pedido</a>
+	<a href="main.do?action=getRequest">Consultar pedido</a>
 </body>
 </html>

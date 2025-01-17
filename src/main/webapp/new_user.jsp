@@ -10,15 +10,7 @@
 	<%
 	String msg = (String) request.getAttribute("message");
 	if (msg != null ) {
-		boolean success = (Boolean) request.getAttribute("saved");
-		
-		if (success) {
-			out.println("<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">");
-		} else {
-			out.println("<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">");
-		}
 		out.println(msg);
-		out.println("<button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"alert\" aria-label=\"Close\"></button></div>");
 	}
 	%>
 	<h1>Sign new user</h1>
