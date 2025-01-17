@@ -2,6 +2,8 @@ package br.edu.ifsp.dsw1.controller;
 
 import br.edu.ifsp.dsw1.controller.command.LoggedCommand;
 import br.edu.ifsp.dsw1.controller.command.LogoffCommand;
+import br.edu.ifsp.dsw1.controller.command.NewUserCommand;
+import br.edu.ifsp.dsw1.controller.command.NewUserFormCommand;
 import br.edu.ifsp.dsw1.controller.command.ErrorCommand;
 import br.edu.ifsp.dsw1.controller.command.Command;
 import jakarta.servlet.ServletException;
@@ -25,12 +27,17 @@ public class MainServlet extends HttpServlet {
 	
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getParameter("action");
+		System.out.println(action);
 		Command command;
 		
 		if ("logged".equals(action) ) {
 			command = new LoggedCommand();
 		} else if ("logoff".equals(action)) {
 			command = new LogoffCommand();
+		} else if ("newUser".equals(action)) {
+			command = new  NewUserCommand();
+		} else if ("newUserForm".equals(action)) {
+			command = new NewUserFormCommand();
 		} else {
 			command = new ErrorCommand();
 		}

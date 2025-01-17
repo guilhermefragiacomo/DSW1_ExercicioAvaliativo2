@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href=main.do?action=logoff">Sair</a>
+	<a href="main.do?action=logoff">Sair</a><br>
+	<a href="main.do?action=newUserForm">Cadastrar novo usuário</a>
 </body>
 </html>

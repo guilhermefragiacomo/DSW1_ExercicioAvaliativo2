@@ -7,11 +7,11 @@ import br.edu.ifsp.dsw1.model.entity.User;
 
 public class UserDaoImpl implements UserDao {
 	private static final String CREATE_TABLE = "CREATE TABLE tb_user ("
-			+ "    name VARCHAR(150) NOT NULL PRIMARY KEY,"
-			+ "    password VARCHAR(128)"
+			+ "    login VARCHAR(50) NOT NULL PRIMARY KEY,"
+			+ "    password VARCHAR(45)"
 			+ ");";
-	private static final String INSERT = "INSERT INTO tb_user (name, password) VALUES (?, ?)";
-	private static final String SELECT_BY_NAME = "SELECT * FROM tb_user WHERE name = ?";
+	private static final String INSERT = "INSERT INTO tb_user (login, password) VALUES (?, ?)";
+	private static final String SELECT_BY_NAME = "SELECT * FROM tb_user WHERE login = ?";
 
 	@Override
 	public boolean insert(User user) {
@@ -41,7 +41,7 @@ public class UserDaoImpl implements UserDao {
 			statement.setString(1, name);
 			var resultSet = statement.executeQuery();
 			if (resultSet.next()) {
-				user = new User(resultSet.getString("name"), resultSet.getString("password"));
+				user = new User(resultSet.getString("login"), resultSet.getString("password"));
 			}
 			
 		} catch (SQLException e) {
