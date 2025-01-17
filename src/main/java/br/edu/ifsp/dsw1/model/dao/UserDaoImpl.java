@@ -11,7 +11,7 @@ public class UserDaoImpl implements UserDao {
 			+ "    password VARCHAR(128)"
 			+ ");";
 	private static final String INSERT = "INSERT INTO tb_user (name, password) VALUES (?, ?)";
-	private static final String SELECT_BY_EMAIL = "SELECT * FROM tb_user WHERE name = ?";
+	private static final String SELECT_BY_NAME = "SELECT * FROM tb_user WHERE name = ?";
 
 	@Override
 	public boolean insert(User user) {
@@ -33,15 +33,15 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findByEmail(String email) {
+	public User findByEmail(String name) {
 		User user = null;
 		try ( var connection = DatabaseConnection.getConnection();
-			  var statement = connection.prepareStatement(SELECT_BY_EMAIL)) {
+			  var statement = connection.prepareStatement(SELECT_BY_NAME)) {
 			
-			statement.setString(1, email);
+			statement.setString(1, name);
 			var resultSet = statement.executeQuery();
 			if (resultSet.next()) {
-				user = new User(resultSet.getString("name"), resultSet.getString("email"), resultSet.getString("password"));
+				user = new User(resultSet.getString("name"), resultSet.getString("password"));
 			}
 			
 		} catch (SQLException e) {

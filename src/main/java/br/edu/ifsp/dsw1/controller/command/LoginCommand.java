@@ -20,7 +20,7 @@ public class LoginCommand implements Command {
 		var dao = new UserDaoFactory().factory();
 		var user = dao.findByEmail(email);
 		
-		var autorized = User.autenticate(user, email, passwd);
+		var autorized = User.autenticate(user, passwd);
 		
 		String view;
 		
